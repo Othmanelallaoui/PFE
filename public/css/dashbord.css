@@ -1,0 +1,8 @@
+.boo span {
+    font-size: 35px;
+    font-weight: 300;
+    color: black;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}

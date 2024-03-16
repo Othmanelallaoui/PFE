@@ -1,0 +1,97 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.add_emp a {
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgba(1, 57, 241, 0.445);
+    margin: 10px;
+    text-align: center;
+}
+
+.add_emp {
+    margin-left: 10px;
+    margin-bottom: -20px;
+    float: right;
+}
+
+.array_emp {
+    margin: 30px;
+    margin-left: 100px;
+    text-align: center;
+}
+
+.array_emp span {
+    font-size: 23px;
+    border: 10px black;
+}
+
+.array_emp table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 20px;
+    margin-top: 0px;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.delete-link {
+    color: red;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.delete-link i {
+    margin-right: 5px;
+}
+
+table a {
+    text-align: center;
+}
+
+.delete-link:hover {
+    text-decoration: none;
+}
+
+.footer {
+    background-color: #e491919c;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+.social-icon {
+    margin: 0 5px;
+    color: #333;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+.Edite-link {
+    color: blue;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+h1 {
+    text-shadow: #FC0 2px 0 10px;
+    animation: forwards;
+    font-size: 24px;
+    margin-bottom: 16px;
+}

@@ -1,0 +1,28 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Cela assure que le corps prend au moins 100% de la hauteur de la vue. */
+    margin: 0;
+}
+
+footer {
+    background-color: #f815156e;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+.social-icon:hover {
+    color: #007bff;
+}
+
+.fab {
+    font-size: 24px;
+}
+
+.maindiv {
+    margin-top: 30px;
+}
