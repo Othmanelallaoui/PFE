@@ -14,13 +14,14 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
 </head>
 
-<body class=" bg-gray-100  ">
+<body style="background-image:url('<?php echo asset('background.jpg'); ?>'); background-repeat: no-repeat; background-size: cover;">
     <div>
         @yield('content')
     </div>
-
 </body>
+
 
 </html>

@@ -63,9 +63,16 @@
         border-radius: 45px;
 
     }
+    .navbar{
+        margin-top: 30px;
+    }
+    .array_emp{
+        display: block;
+        align-items: baseline;
+    }
+   
 </style>
-
-<div class="add_emp">
+<div class="navbar"><div class="add_emp">
     <nav>
         <a href="{{ route('add_employee') }}"><i class="fas fa-plus">  </i> Add Employee </a>
     </nav>
@@ -75,7 +82,8 @@
     <label for="searchName">Search by Name:</label>
     <input type="text" id="searchName" onkeyup="handleEnter(event)">
     <button onclick="filterByName()">Filter</button>
-</div>
+</div></div>
+
 
 <div class="array_emp">
     <h1>Liste des employés</h1>

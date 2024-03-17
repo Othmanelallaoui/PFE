@@ -7,40 +7,36 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: -45px;
-        width: 100%;
+        height: 100vh;
     }
 
 
     form {
         margin-top: 25px;
         background-color: white;
-        padding: 20px;
+        padding: 15px;
         border-radius: 8px;
-        height: 580px;
+        height: 90%;
+        width: 40%;
 
 
     }
 
     .w-1 {
 
-        width: 20%;
+        width: 17%;
     }
 
-    form {
-        margin-top: 25px;
-        width: 45%;
+    
 
-    }
-   
 
     input[type="date"] {
         border-radius: 7px;
     }
 
-select{
-    border-radius: 8px;
-}
+    select {
+        border-radius: 8px;
+    }
 </style>
 
 

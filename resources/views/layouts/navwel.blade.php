@@ -1,54 +1,27 @@
-<link rel="stylesheet" href="css/navbar.css">
+<link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
+<link rel="stylesheet" href="../../../public/css/welcmeCss.css">
+<div class="navigation-menu">
+    <div class="items-center">
 
-
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
-    <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-            <div class="flex">
-
-
-               
-
-
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('employees.index')" :active="request()->routeIs('employees.index')">
-                        {{ __('G.Employee') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('absences.index')" :active="request()->routeIs('absences.index')">
-                        {{ __('G.Absence') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('conge.index')" :active="request()->routeIs('conge.index')">
-                        {{ __('G.Conge') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('formation.index')" :active="request()->routeIs('formation.index')">
-                        {{ __('G.Formation') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('recruitment.index')" :active="request()->routeIs('recruitment.index')">
-                        {{ __('Recruitment') }}
-                    </x-nav-link>
-                </div>
-
-
-
-
-
-
-
-            </div>
+        <div class="icon">
+            <a href="#Home">
+                <i class="fas fa-house nav-icon"></i>
+            </a>
         </div>
 
+        <!-- Navigation Links -->
+        <div class="">
+            <a href="#Home" class="nav-link">Accueil</a>
+            <a href="#News" class="nav-link">Actualités</a>
+            <a href="#Statistics" class="nav-link">Statistiques</a>
+            <a href="#About" class="nav-link">À propos</a>
+            <a href="#Contact-us" class="nav-link">Contactez-nous</a>
+            <a href="{{ route('login') }}" class="nav-link link-user"> Administrateur</a>
 
 
 
-
-
-
-
+        </div>
     </div>
-</nav>
+</div>

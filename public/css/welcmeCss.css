@@ -1,0 +1,147 @@
+#Home {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#News {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+h1 {
+    border: 1px solid rgba(15, 11, 11, 0.548);
+    width: 100%;
+    padding: 10px;
+    background-color: #888;
+}
+
+#Statistics {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#About {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#Contact-us {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#Contact-us form {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    width: 500px;
+}
+
+
+/* Styles pour les étiquettes */
+
+label {
+    font-weight: bold;
+}
+
+
+/* Styles pour les champs de saisie */
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+/* Styles pour le bouton d'envoi */
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 6px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+/* Changement de couleur du bouton au survol */
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.navigation-menu {
+    background-color: black;
+    color: white;
+    font-family: 'figtree', sans-serif;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    margin-bottom: 90px;
+}
+
+.navigation-menu .nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 0 20px;
+    line-height: 16px;
+}
+
+.navigation-menu .nav-link:hover {
+    color: #888;
+}
+
+.navigation-menu .nav-link.active {
+    font-weight: bold;
+}
+
+.nav-icon {
+    color: white;
+    font-size: 24px;
+    margin-top: -2px;
+}
+
+.icon {
+    float: left;
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+.link-user {
+    float: right;
+    margin-right: 20px;
+}

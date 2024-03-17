@@ -23,19 +23,19 @@
         {{ __('Dashboard') }}
     </x-nav-link>
     <x-nav-link :href="route('employees.index')" :active="request()->routeIs('employees.index')">
-        {{ __('G.Employee') }}
+        {{ __('Gestion Employee') }}
     </x-nav-link>
     <x-nav-link :href="route('absences.index')" :active="request()->routeIs('absences.index')">
-        {{ __('G.Absence') }}
+        {{ __('Gestion Absence') }}
     </x-nav-link>
     <x-nav-link :href="route('conge.index')" :active="request()->routeIs('conge.index')">
-        {{ __('G.Conge') }}
+        {{ __('Gestion Conge') }}
     </x-nav-link>
     <x-nav-link :href="route('formation.index')" :active="request()->routeIs('formation.index')">
-        {{ __('G.Formation') }}
+        {{ __('Gestion Formation') }}
     </x-nav-link>
     <x-nav-link :href="route('recruitment.index')" :active="request()->routeIs('recruitment.index')">
-        {{ __('Recruitment') }}
+        {{ __('Recrutement') }}
     </x-nav-link>
 </div>
   

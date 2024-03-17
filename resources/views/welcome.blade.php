@@ -1,46 +1,72 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>kech Service</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EST RH Service</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/welcmeCss.css">
+    <style>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-        <link rel="stylesheet" href="css/dashborard.css">
-    
-    </head>
-    <body class="antialiased">
-    @include('layouts.navwel') 
+    </style>
 
-        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen b">
+</head>
+
+<body class="antialiased">
+    @include('layouts.navwel')
+    <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen b ">
+        <!--
         @if (Route::has('login'))
-                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="dashboard">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="login">Sing up</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="register">Sign up</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="max-w-7xl mx-auto p-6 lg:p-8">
-               
-
-                <div class="mt-16">
-                   
-                          <H1>EST FBS </H1>   
-                       
-                   
-                </div>
-               
+            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10 ">
+                @auth
+                    <a href="{{ url('/dashboard') }}" class="dashboard">Dashboard</a>
+                @else
+                    <a href="{{ route('login') }}" class="login">Sign up</a>
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="register">Sign up</a>
+                    @endif
+                @endauth
             </div>
-        </div>
-    </body>
+        @endif
+        -->
+
+    </div>
+    <section id="Home" style="background-image:url('<?php echo asset('background.jpg'); ?>'); background-repeat: no-repeat; background-size: cover;">
+       
+       
+
+    </section>
+    <section id="News">
+        <h1>NEWS</h1>
+    </section>
+    <section id="Statistics">
+        <h1>STATISTICS</h1>
+    </section>
+    <section id="About">
+        <h1>ABOUT</h1>
+    </section>
+    <section id="Contact-us">
+
+
+        <form action="submit_form.php" method="POST">
+        <h2>Contactez-nous</h2>
+
+            <label for="name">Nom :</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="message">Message :</label><br>
+            <textarea id="message" name="message" rows="4" required></textarea><br><br>
+
+            <input type="submit" value="Envoyer">
+        </form>
+
+    </section>
+</body>
+
 </html>
