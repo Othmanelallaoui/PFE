@@ -6,31 +6,28 @@
         display: flex;
         justify-content: center;
         align-items: center;
-
+margin-bottom: 20px;
     }
 
 
     form {
         background-color: white;
-        padding-left: 13px;
-        padding-right: 13px;
-        padding-top: 13px;
-        padding-bottom: 5px;
         border-radius: 8px;
-        margin-bottom: 10px;
-        margin-top: 13px;
+        padding: 6px 20px;        
         width: 33%;
+        margin: 8px 6px;
+        bottom: 10px
     }
 
     .divbutton {
         background-color: rgba(255, 0, 0, 0.7);
         color: white;
-        padding: 8px;
+        padding: 4px;
         float: right;
         text-align: center;
         border-radius: 12px;
         width: 80px;
-        margin: 8px;
+        margin: 6px;
     }
 
     input[type="file"] {

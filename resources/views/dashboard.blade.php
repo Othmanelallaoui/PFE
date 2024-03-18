@@ -21,7 +21,6 @@
 </head>
 
 <body>
-<!-- <img src="{{ asset('images/back.jpg') }}" alt=""> -->
 
 
 </body>

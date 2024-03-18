@@ -1,7 +1,6 @@
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
 }
 
 .add_emp a {
@@ -32,7 +31,7 @@ body {
 .array_emp table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 20px;
+    font-size: 14px;
     margin-top: 0px;
 }
 
@@ -45,6 +44,7 @@ td {
 
 th {
     background-color: #f2f2f2;
+    font-size: 16px;
 }
 
 .delete-link {
@@ -65,13 +65,6 @@ table a {
     text-decoration: none;
 }
 
-.footer {
-    background-color: #e491919c;
-    padding: 10px;
-    text-align: center;
-    width: 100%;
-}
-
 .social-icon {
     margin: 0 5px;
     color: #333;
@@ -90,8 +83,13 @@ a:hover {
 }
 
 h1 {
-    text-shadow: #FC0 2px 0 10px;
     animation: forwards;
-    font-size: 24px;
+    font-size: 20px;
     margin-bottom: 16px;
+    margin-right: 40px;
+}
+
+main {
+    min-height: 90vh;
+    flex: 1;
 }

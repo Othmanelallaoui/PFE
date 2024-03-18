@@ -11,17 +11,23 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StaticController;
 use App\Models\Employee;
+use App\Models\Recruitment;
 use GuzzleHttp\Middleware;
 
+Route::get('/welcome', [StaticController::class, 'welcome'])->name('welcome');
 Route::get('/', [StaticController::class, 'welcome']);
+
 Route::get('/dashboard', [StaticController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');;
 Route::get('/about', [StaticController::class, 'about'])->name('about');
 Route::get('/contact', [StaticController::class, 'contact'])->name('contact');
 
 
+
+
 Route::get('/add_employee', [EmployeeController::class, 'add_employee'])->name('add_employee');
 // Route::delete('/employees/deletemultiple', [EmployeeController::class, 'deleteMultiple'])->name('employees.deleteMultiple');
 Route::resource('/employees', EmployeeController::class);
+
 
 
 Route::resource('/absences', AbsenceController::class);
@@ -30,9 +36,14 @@ Route::get('/add_absence', [AbsenceController::class, 'add_absence'])->Middlewar
 
 Route::resource('/conge', CongeController::class);
 
+
 Route::resource('/formation', FormationController::class);
 
 Route::resource('/recruitment', RecruitmentController::class);
+Route::get('/add_offer', [RecruitmentController::class, 'add_offer'])->name('add_offer');
+Route::get('/offre_emploi', [RecruitmentController::class, 'offre_emploi'])->name('offre_emploi');
+
+
 
 
 

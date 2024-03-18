@@ -19,6 +19,7 @@
         box-shadow: inset;
         padding: 10px;
         margin-left: -10px;
+        height: 100vh;
     }
 
     th,
@@ -26,12 +27,12 @@
         border: 1px solid white;
         padding: 8px;
         text-align: center;
-        font-size: 18px;
+        font-size: 14px;
     }
 
     th {
         background-color: #f2f2f2;
-        font-size: 20px;
+        font-size: 14px;
     }
 
     table {
@@ -66,22 +67,19 @@
     .navbar{
         margin-top: 30px;
     }
-    .array_emp{
-        display: block;
-        align-items: baseline;
-    }
+   
    
 </style>
 <div class="navbar"><div class="add_emp">
     <nav>
         <a href="{{ route('add_employee') }}"><i class="fas fa-plus">  </i> Add Employee </a>
     </nav>
-</div>
+</div></div>
 
 <div class="search-bar">
-    <label for="searchName">Search by Name:</label>
+    <label for="searchName">Recherche par Nom:</label>
     <input type="text" id="searchName" onkeyup="handleEnter(event)">
-    <button onclick="filterByName()">Filter</button>
+    <button onclick="filterByName()">Recherche</button>
 </div></div>
 
 

@@ -34,20 +34,13 @@
         -->
 
     </div>
-    <section id="Home" style="background-image:url('<?php echo asset('background.jpg'); ?>'); background-repeat: no-repeat; background-size: cover;">
+    <section id="Home" style="background-image:url('<?php echo asset('images/backRH.jpg'); ?>'); background-repeat: no-repeat; background-size: cover; box-shadow: inset 900px 0px 800px 70px rgba(0, 0, 0, 0.7);">
        
-       
+       <span id="titre">Welcome in <br> our  Web Site RH</span>
 
     </section>
-    <section id="News">
-        <h1>NEWS</h1>
-    </section>
-    <section id="Statistics">
-        <h1>STATISTICS</h1>
-    </section>
-    <section id="About">
-        <h1>ABOUT</h1>
-    </section>
+    
+   
     <section id="Contact-us">
 
 

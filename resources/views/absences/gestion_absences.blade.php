@@ -19,7 +19,11 @@
 
 
     }
-
+ .scrollable-div {
+        max-height: 460px;
+        overflow-y: auto;
+        padding: 10px;
+    }
     .add_abs {
         float: right;
         margin-top: 30px;
@@ -81,8 +85,9 @@
     <button onclick="filterByName()">Search</button>
 </div>
 
-
 <div class="array_emp">
+<div class="scrollable-div">
+
     <table>
         <tr>
             <th></th>
@@ -91,7 +96,7 @@
             <th>Start Date</th>
             <th>End Date</th>
             <th>Reason</th>
-            <th>Number of days absent</th>
+            <th>Days absent</th>
         </tr>
         @foreach($absences as $absence)
         @foreach($employees as $employee)
@@ -109,6 +114,7 @@
         @endforeach
         @endforeach
     </table>
+</div>
 </div>
 
 <script>

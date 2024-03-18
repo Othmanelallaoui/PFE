@@ -17,7 +17,7 @@
 
 </head>
 
-<body style="background-image:url('<?php echo asset('background.jpg'); ?>'); background-repeat: no-repeat; background-size: cover;">
+<body class="bg-gray-100" >
     <div>
         @yield('content')
     </div>

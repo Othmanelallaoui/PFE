@@ -2,11 +2,12 @@
 @section('title', 'Edit Employee')
 @section('content')
 <style>
+    
     .divform {
         display: flex;
         justify-content: center;
         align-items: center;
-        
+
     }
 
     .w-1 {
@@ -18,11 +19,12 @@
         margin-top: 25px;
         width: 45%;
         background-color: #ffffff;
-padding: 20px;
-border-radius: 12px;
+        padding: 20px;
+        border-radius: 12px;
     }
-
+    
 </style>
+<link rel="stylesheet" href="css/sidebare.css">
 
 <div class="divform">
     <form method="POST" action="{{ route('employees.update',['employee'=> $employee->id]) }}">
@@ -85,16 +87,12 @@ border-radius: 12px;
 
 
 
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
 
-            <x-primary-button class="ms-4" style="background-color: blue; color:#ffffff">
-                {{ __('Save Editing') }}
-            </x-primary-button>
-        </div>
-    </form>
+        <x-primary-button class="ms-4" style="background-color: blue; color:#ffffff">
+            {{ __('Save Editing') }}
+        </x-primary-button>
+</div>
+</form>
 
 </div>
 

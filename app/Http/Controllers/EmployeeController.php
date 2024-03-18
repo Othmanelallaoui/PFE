@@ -94,7 +94,9 @@ class EmployeeController extends Controller
 
        
     }
-
+public function test(){
+    return view('employee.test');
+}
  
     public function update(Request $request,$employee)
     {

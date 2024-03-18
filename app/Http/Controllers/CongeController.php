@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Conge;
 
 class CongeController extends Controller
 {
@@ -11,7 +12,10 @@ class CongeController extends Controller
      */
     public function index()
     {
-        return view('conge.gestion_conge');
+        $conges = Conge::all();
+
+
+        return view('conge.gestion_conge', ['conges' => $conges]);
     }
 
     /**

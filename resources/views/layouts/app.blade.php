@@ -7,32 +7,41 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title')</title>
-<link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/add.css">
+    <link rel="stylesheet" href="css/conge.css">
     <link rel="stylesheet" href="css/sidebare.css">
+    <link rel="stylesheet" href="css/footer.css">
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.0.7/css/boxicons.min.css">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-wt+oFkl3jd1R5FuZ3vZ6fEuKegkXNtKYz6oA67z2ZrPbcaPnMnoDtN2GK8qfPwv2qwx2j4HhrCt1C2BKDhfj+g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+       
+</style>
 </head>
 
-<body>
+<body >
 
-<nav class="sidebar close">
+    <nav class="sidebar close">
         <header>
             <div class="image-text">
                 <span class="image">
-                    <!--<img src="logo.png" alt="">-->
+                <img src="{{ asset('images/profile.JPG') }}" alt="othman">
                 </span>
 
                 <div class="text logo-text">
-                    <span class="name">TomTom</span>
-                    <span class="profession">New Edge</span>
+                    <span style="font-size: 12px;" class="name">Mr.Othman Elallaoui</span>
+                    <!-- <span class="profession">New Edge</span> -->
                 </div>
             </div>
 
@@ -42,50 +51,50 @@
         <div class="menu-bar">
             <div class="menu">
 
-                <li class="search-box">
+                <!-- <li class="search-box">
                     <i class='bx bx-search icon'></i>
                     <input type="text" placeholder="Search...">
-                </li>
+                </li> -->
 
                 <ul class="menu-links">
                     <li class="nav-link">
                         <a href="{{route('dashboard')}}">
-                            <i class='bx bx-home-alt icon'></i>
-                            <span class="text nav-text">Dashboard</span>
+                            <i class='fas fa-home icon'></i>
+                            <span class="text nav-text">Accueil</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="{{route('employees.index')}}">
-                            <i class='bx bx-bar-chart-alt-2 icon'></i>
-                            <span class="text nav-text">G.Employee</span>
+                            <i class='fas fa-users icon'></i>
+                            <span class="text nav-text">Gestion Employee</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="{{route('absences.index')}}">
-                            <i class='bx bx-bell icon'></i>
-                            <span class="text nav-text">G.abscence</span>
+                            <i class='fas fa-calendar-minus icon'></i>
+                            <span class="text nav-text">Gestion abscence</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="{{route('conge.index')}}">
-                            <i class='bx bx-pie-chart-alt icon'></i>
-                            <span class="text nav-text">G.Conge</span>
+                            <i class='far fa-calendar-alt icon'></i>
+                            <span class="text nav-text">Gestion Conge</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="{{route('formation.index')}}">
-                            <i class='bx bx-heart icon'></i>
-                            <span class="text nav-text">G.Formation</span>
+                            <i class='fas fa-graduation-cap icon'></i>
+                            <span class="text nav-text">Gestion Formation</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="{{route('recruitment.index')}}">
-                            <i class='bx bx-wallet icon'></i>
+                            <i class='fas fa-user-plus icon'></i>
                             <span class="text nav-text">Recrutment</span>
                         </a>
                     </li>
@@ -95,15 +104,15 @@
 
             <div class="bottom-content">
                 <li class="">
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
 
-                    <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
+                        <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                        {{ __('Log Out') }}
-                    </x-responsive-nav-link>
-                </form>
+                            <i class="fas fa-sign-out-alt icon"></i>
+
+                        </x-responsive-nav-link>
+                    </form>
                 </li>
 
                 <!-- <li class="mode">
@@ -123,19 +132,21 @@
 
     </nav>
 
-    <main class="">
-    @yield('content')
+    <main >
+        @yield('content')
     </main>
 
-
-   <div class="footer">
-<span>Réseaux sociaux :</span>
+    <footer > 
+        <span>Réseaux sociaux :</span>
         <a href="https://www.facebook.com/profile.php?id=100028746217968" class="social-icon"><i class="fab fa-facebook"></i></a>
         <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
         <a href="https://www.instagram.com/othmanelallaoui/?next=%2F" class="social-icon"><i class="fab fa-instagram"></i></a>
- </div>
+    </footer>
+
+
 </body>
 
 <script src="js/sidebarjs.js"></script>
+
 
 </html>
