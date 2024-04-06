@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Conge;
+use App\Models\DemandConge;
 
 class CongeController extends Controller
 {
@@ -23,7 +24,7 @@ class CongeController extends Controller
      */
     public function create()
     {
-        //
+        return view('conge.demande_conge');
     }
 
     /**
@@ -31,7 +32,28 @@ class CongeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validation des données
+        $validatedData = $request->validate([
+            'motif' => 'required|string',
+            'employee_id'=>'required',
+            'date_debut' => 'required|date',
+            'date_fin' => 'required|date',
+            'commentaire' => 'nullable|string',
+        ]);
+
+        // Création d'une nouvelle demande de congé associée à l'utilisateur authentifié
+        $demandConge = new DemandConge();
+        $demandConge->employee_id = $validatedData['employee_id'];
+        $demandConge->motif = $validatedData['motif'];
+        $demandConge->date_debut = $validatedData['date_debut'];
+        $demandConge->date_fin = $validatedData['date_fin'];
+        $demandConge->commentaire = $validatedData['commentaire'];
+
+        // Enregistrement de la demande de congé
+        $demandConge->save();
+
+        // Redirection vers une page de confirmation ou une autre action
+        return redirect()->route('conge.create');
     }
 
     /**

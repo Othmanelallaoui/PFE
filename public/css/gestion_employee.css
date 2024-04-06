@@ -1,0 +1,136 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.add_emp a {
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgba(1, 57, 241, 0.445);
+    margin: 10px;
+    text-align: center;
+}
+
+.add_emp {
+    margin-left: 10px;
+    margin-bottom: -20px;
+    float: right;
+}
+
+.array_emp {
+    margin: 30px;
+    margin-left: 100px;
+    text-align: center;
+}
+
+.array_emp span {
+    font-size: 23px;
+    border: 10px black;
+}
+
+.array_emp table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin-top: 0px;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-size: 16px;
+}
+
+.delete-link {
+    color: red;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.delete-link i {
+    margin-right: 5px;
+}
+
+table a {
+    text-align: center;
+}
+
+.delete-link:hover {
+    text-decoration: none;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+.Edite-link {
+    color: blue;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.add_emp a {
+    background-color: #ccc;
+}
+
+.add_emp a:hover {
+    border-radius: 10px;
+    background-color: #cc9;
+}
+
+.scrollable-div {
+    /* max-height: 500px;
+    overflow-y: auto; */
+    box-shadow: inset;
+    padding: 10px;
+}
+
+th,
+td {
+    border: 1px solid white;
+    padding: 8px;
+    text-align: center;
+    font-size: 14px;
+}
+
+th {
+    background-color: rgba(10, 3, 30, 0.09);
+    font-size: 14px;
+}
+
+table {
+    width: 80%;
+}
+
+.search-bar {
+    float: left;
+    margin-top: -12px;
+    margin-left: 470px;
+}
+
+.search-bar input[type="text"] {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    width: 300px;
+}
+
+.navbar {
+    margin-top: 30px;
+}
+
+.age {
+    font-size: 14px;
+}
+
+.array_emp {
+    margin-top: 70px;
+    width: 93%;
+}

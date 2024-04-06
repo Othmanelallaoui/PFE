@@ -4,44 +4,29 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>EST RH Service</title>
-    <!-- Fonts -->
+    <title>PFE Othman$Wiam</title>
+    <!-- Polices -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/welcmeCss.css">
     <style>
-
+        body {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
     </style>
 
 </head>
+<section id="Home" style="background-image:url('<?php echo asset('images/backRH.jpg'); ?>'); background-repeat: no-repeat; background-size: cover; box-shadow: inset 900px 0px 800px 70px rgba(0, 0, 0, 0.4);">
 
 <body class="antialiased">
     @include('layouts.navwel')
-    <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen b ">
-        <!--
-        @if (Route::has('login'))
-            <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10 ">
-                @auth
-                    <a href="{{ url('/dashboard') }}" class="dashboard">Dashboard</a>
-                @else
-                    <a href="{{ route('login') }}" class="login">Sign up</a>
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="register">Sign up</a>
-                    @endif
-                @endauth
-            </div>
-        @endif
-        -->
 
-    </div>
-    <section id="Home" style="background-image:url('<?php echo asset('images/backRH.jpg'); ?>'); background-repeat: no-repeat; background-size: cover; box-shadow: inset 900px 0px 800px 70px rgba(0, 0, 0, 0.7);">
-       
-       <span id="titre">Welcome in <br> our  Web Site RH</span>
+    <span id="titre">Bienvenue sur <br> notre Site Web RH</span>
 
     </section>
-    
-   
-    <section id="Contact-us">
+
+
+    <!-- <section id="Contact-us">
 
 
         <form action="submit_form.php" method="POST">
@@ -59,7 +44,7 @@
             <input type="submit" value="Envoyer">
         </form>
 
-    </section>
+    </section> -->
 </body>
 
 </html>

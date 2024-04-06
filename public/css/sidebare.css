@@ -152,9 +152,9 @@ header .image-text .profession {
 }
 
 .sidebar header .image img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    border-radius: 40%;
 }
 
 .sidebar header .toggle {
@@ -164,7 +164,7 @@ header .image-text .profession {
     transform: translateY(-50%) rotate(180deg);
     height: 40px;
     width: 40px;
-    background-color: var(--primary-color);
+    background-color: black;
     color: var(--sidebar-color);
     border-radius: 3px;
     display: flex;
@@ -221,7 +221,7 @@ body.dark .sidebar header .toggle {
 }
 
 .sidebar li a:hover {
-    background-color: var(--primary-color);
+    background-color: black;
 }
 
 .sidebar li a:hover .icon,
@@ -349,4 +349,8 @@ body.dark .switch::before {
 
 body.dark .home .text {
     color: var(--text-color);
+}
+
+.iconlogout {
+    margin-left: -15px;
 }

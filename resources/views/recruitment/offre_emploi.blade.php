@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Offres des emplois</title>
     <style>
         body{
             background-color: rgba(30, 20, 52, 0.5);
@@ -26,6 +26,9 @@
             width: calc(33.33% - 20px);
             /* 33.33% width with margin */
             box-sizing: border-box;
+        }
+        .offer-card:hover{
+            cursor: pointer;
         }
 
         .offer-card h2 {
@@ -55,20 +58,31 @@
 </head>
 
 <body>
-@include('layouts.navwel')
+    @include('layouts.navwel')
 
     <div class="offer-container">
         @foreach ($offers as $offer)
-        <div class="offer-card">
-            <h2>{{ $offer->titre_poste }}</h2>
-            <p><strong>Description:</strong> {{ $offer->description_poste }}</p>
-            <p><strong>Date de publication:</strong> {{ $offer->date_publication }}</p>
-            <p><strong>Date de clôture:</strong> {{ $offer->date_cloture }}</p>
-
-        </div>
+        
+            <div class="offer-card table-row" data-url="{{ route('Offre_details', ['id' => $offer]) }}">
+                <h2>{{ $offer->titre_poste }}</h2>
+                <p><strong>Date de publication:</strong> {{ $offer->date_publication }}</p>
+                <p><strong>Date de clôture:</strong> {{ $offer->date_cloture }}</p>
+            </div>
+        
         @endforeach
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tableRows = document.querySelectorAll('.table-row');
+            tableRows.forEach(row => {
+                row.addEventListener('click', function() {
+                    const url = this.getAttribute('data-url');
+                    window.location.href = url;
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

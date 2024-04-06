@@ -1,0 +1,115 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    min-height: 90vh;
+    flex: 1;
+}
+
+.add_emp a {
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgba(1, 57, 241, 0.445);
+    margin: 10px;
+    text-align: center;
+}
+
+.add_emp {
+    margin-left: 10px;
+    margin-bottom: -20px;
+    float: right;
+}
+
+.array_emp {
+    margin: 30px;
+    margin-left: 100px;
+    text-align: center;
+    width: 93%;
+}
+
+.array_emp span {
+    font-size: 23px;
+    border: 10px black;
+}
+
+.array_emp table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin-top: 0px;
+}
+
+.add_abs a {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 12px;
+    text-align: center;
+    border: 0.5px black solid;
+}
+
+.add_abs a:hover {
+    background-color: rgba(1, 1, 0, 0.08);
+}
+
+.scrollable-div {
+    overflow-y: auto;
+    box-shadow: inset;
+    padding: 10px;
+    margin-top: -20px;
+}
+
+.add_abs {
+    float: right;
+    margin-top: 30px;
+}
+
+.search-bar {
+    margin-top: 20px;
+    margin-left: 150px;
+}
+
+.search-bar input[type="date"] {
+    margin-right: 10px;
+    border-radius: 50px;
+}
+
+.search-bar1 {
+    margin-top: -40px;
+    margin-left: 550px;
+}
+
+.search-bar1 input[type="text"] {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    width: 300px;
+}
+
+.search-bar .fas {
+    background-color: rgba(1, 0, 0, 0.01);
+    padding: 11px;
+    border-radius: 7px;
+    border: 1px black solid;
+}
+
+.search-bar1 .fas {
+    background-color: gold;
+    padding: 11px;
+    border-radius: 7px;
+}
+
+th,
+td {
+    border: 1px solid white;
+    padding: 8px;
+    text-align: center;
+    font-size: 14px;
+}
+
+th {
+    background-color: rgba(10, 3, 30, 0.09);
+    font-size: 14px;
+}

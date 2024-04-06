@@ -1,0 +1,67 @@
+/* styles.css */
+
+
+/* Style général */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-left: 40px;
+    margin-top: 10px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+.container form {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 10px 1px 100px 0px rgba(0, 0, 0, 0.5);
+    padding: 25px;
+    width: 500px;
+    margin-left: 70px;
+}
+
+
+/* Titre de la page */
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+
+/* Formulaire de création */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea,
+select,
+input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

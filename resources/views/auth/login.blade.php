@@ -38,39 +38,38 @@
         border-color: grey;
     }
   
-   
+   h3{
+    text-align: center;
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 10px;
+   }
 </style>
 <!-- Session Status -->
 <div class="divglo">
     <form method="POST" action="{{ route('login') }}">
         @csrf
-
+<h3>Admin</h3>
         <!-- Email Address -->
         <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" placeholder="email@gmail.com"  :value="old('email')" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
-
+            <input id="password" class="block mt-1 w-full border-2 rounded-md" type="password" name="password"  placeholder="********" required autocomplete="current-password" />
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
+
         </div>
 
-        <!-- Remember Me -->
 
         <div class="logcreat">
-            <a class="creat" href="{{ route('password.request') }}">
-                {{ __('Create Account') }}
-            </a>
+         
             <div class="flex items-center justify-end mt-4">
 
                 <x-primary-button class="ms-3">
-                    {{ __('Log in') }}
+                    {{ __('Connecter') }}
                 </x-primary-button>
             </div>
         </div>

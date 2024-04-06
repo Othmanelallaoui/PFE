@@ -7,8 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title')</title>
-    <link rel="stylesheet" href="css/add.css">
-    <link rel="stylesheet" href="css/conge.css">
+    <!-- <link rel="stylesheet" href="css/add.css"> -->
     <link rel="stylesheet" href="css/sidebare.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -26,26 +25,32 @@
             margin: 0;
             padding: 0;
         }
-       
-</style>
+        
+        
+    </style>
 </head>
 
-<body >
+<body>
 
     <nav class="sidebar close">
         <header>
             <div class="image-text">
                 <span class="image">
-                <img src="{{ asset('images/profile.JPG') }}" alt="othman">
+                    <img src="{{ asset('images/profile.JPG') }}" alt="{{ Auth::user()->first_name}}">
                 </span>
 
                 <div class="text logo-text">
-                    <span style="font-size: 12px;" class="name">Mr.Othman Elallaoui</span>
-                    <!-- <span class="profession">New Edge</span> -->
+                    <span style="font-size: 14px;" class="name">@if(Auth::user()->sexe == 'homme')
+
+                        <div>{{ 'Mr. ' . Auth::user()->first_name . ' ' . Auth::user()->last_name }}</div>
+                        @else
+                        <div>{{ 'Mme. ' . Auth::user()->first_name . ' ' . Auth::user()->last_name }}</div>
+                        @endif
+                    </span>
                 </div>
             </div>
 
-            <i class='bx bx-chevron-right toggle'></i>
+            <i class='bx bx-chevron-right toggle '></i>
         </header>
 
         <div class="menu-bar">
@@ -102,14 +107,15 @@
                 </ul>
             </div>
 
-            <div class="bottom-content">
-                <li class="">
+            <div class="">
+                <li class="nav-link">
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
 
                         <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                            <i class="fas fa-sign-out-alt icon"></i>
+                            <i class="fas fa-sign-out-alt icon iconlogout"></i>
+                            <span class="text nav-text">Déconnexion</span>
 
                         </x-responsive-nav-link>
                     </form>
@@ -132,11 +138,13 @@
 
     </nav>
 
-    <main >
+    <main>
+      
+    </section>
         @yield('content')
     </main>
 
-    <footer > 
+    <footer>
         <span>Réseaux sociaux :</span>
         <a href="https://www.facebook.com/profile.php?id=100028746217968" class="social-icon"><i class="fab fa-facebook"></i></a>
         <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>

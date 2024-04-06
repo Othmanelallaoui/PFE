@@ -1,0 +1,77 @@
+/* gestion_formation.css */
+
+
+/* Style général */
+
+.container {
+    margin-top: 30px;
+    margin-left: 130px;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.cree_formation {
+    background-color: black;
+    color: #fff;
+    border: none;
+    padding: 6px 10px;
+    text-decoration: none;
+    border-radius: 8px;
+    float: right;
+    margin-right: 10px;
+    margin-top: -50px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+
+/* Liste des formations */
+
+.list-group-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.list-group-item h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.list-group-item p {
+    margin-bottom: 5px;
+}
+
+.list-group {
+    padding-top: 30px;
+    margin-top: -30px;
+    margin-right: 10px;
+}
+
+.btn-info,
+.btn-warning,
+.btn-danger {
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 8px;
+    margin: 7px;
+}
+
+.btn-warning {
+    background-color: #0056b3;
+}
+
+.btn-info {
+    background-color: #007bff;
+}
+
+.btn-danger {
+    background-color: rgba(255, 0, 0, 0.7);
+}

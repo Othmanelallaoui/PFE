@@ -1,154 +1,117 @@
 @extends('layouts.app')
-@section('title', 'Employee management')
+@section('title', 'Gestion des employés')
 @section('content')
-<link rel="stylesheet" href="css/add.css">
-<style>
-    .add_emp a{
-        background-color: rgba(0, 0, 240, 0.7);
-
-    }
-    .add_emp a:hover{
-        background-color: rgba(0, 0, 245, 0.8);
-        border-radius: 15px;
-
-    }
-    .scrollable-div {
-        max-height: 460px;
-        overflow-y: auto;
-        border: 1px solid #ccc;
-        box-shadow: inset;
-        padding: 10px;
-        margin-left: -10px;
-        height: 100vh;
-    }
-
-    th,
-    td {
-        border: 1px solid white;
-        padding: 8px;
-        text-align: center;
-        font-size: 14px;
-    }
-
-    th {
-        background-color: #f2f2f2;
-        font-size: 14px;
-    }
-
-    table {
-        width: 80%;
-    }
-
-    .search-bar {
-        float:left ;
-        margin-top: -12px;
-        margin-left: 120px;
-    }
-
-    .search-bar input[type="text"] {
-        padding: 8px;
-        font-size: 14px;
-        border: 1px solid #ccc;
-        border-radius: 50px;
-    }
-
-    .search-bar button {
-        cursor: pointer;
-        background-color: rgba(0, 0, 250, 0.6);
-        padding: 8px;
-        border-radius: 10px;
-    }
-
-    .search-bar button:hover {
-        background-color: rgba(0, 0, 255, 0.9);
-        border-radius: 45px;
-
-    }
-    .navbar{
-        margin-top: 30px;
-    }
-   
-   
-</style>
-<div class="navbar"><div class="add_emp">
-    <nav>
-        <a href="{{ route('add_employee') }}"><i class="fas fa-plus">  </i> Add Employee </a>
-    </nav>
-</div></div>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/gestion_employee.css">
+<div class="navbar">
+    <div class="add_emp">
+        <nav>
+            <a href="{{ route('add_employee') }}">
+                <i class="fas fa-user-plus"></i>
+            </a>
+        </nav>
+    </div>
+</div>
 
 <div class="search-bar">
-    <label for="searchName">Recherche par Nom:</label>
     <input type="text" id="searchName" onkeyup="handleEnter(event)">
-    <button onclick="filterByName()">Recherche</button>
-</div></div>
+    <i class="fas fa-search" onclick="filterByName()" style="cursor: pointer;"></i>
+</div>
 
-
-<div class="array_emp">
-    <h1>Liste des employés</h1>
+<div class="array_emp ">
 
     <div class="scrollable-div">
-        <table>
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Age</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>City</th>
-                <th>Edit</th>
-                <th>Delete</th>
+    <table>
+    <tr>
+        <th>Prénom</th>
+        <th>Nom de famille</th>
+        <th>Âge</th>
+        <th>Email</th>
+        <th>Téléphone</th>
+        <th>Ville</th>
+        <th>Role</th>
+        <th>Modifier</th>
+        <th>Supprimer</th>
+    </tr>
+
+    <!-- Afficher d'abord les candidats -->
+    @foreach($employees as $employee)
+        @if($employee->role == 'employee')
+        <tr>
+                <td>{{ $employee->first_name }}</td>
+                <td>{{ $employee->last_name }}</td>
+                <td>
+                    <div class="age" data-dob="{{ $employee->date_of_birth }}"></div>
+                </td>
+                <td>{{ $employee->email }}</td>
+                <td>{{ $employee->phone }}</td>
+                <td>{{ $employee->city ? $employee->city : "null" }}</td>
+                <td>{{ $employee->role}}</td>
+                <td><a href="{{ route('employee.Edit', ['employee' => $employee->id]) }}" class="Edit-link" data-employee-id="{{ $employee->id }}"><i class="fas fa-pencil-alt"></i> Modifier</a></td>
+                <td><a class="delete-link" data-employee-id="{{ $employee->id }}"><i class="fas fa-trash-alt"></i> Supprimer</a></td>
             </tr>
+        @endif
+    @endforeach
 
-            @foreach($employees as $employee)
-                <tr>
-                    <td>{{ $employee->first_name }}</td>
-                    <td>{{ $employee->last_name }}</td>
-                    <td><span id="age_{{ $employee->id }}"></span></td>  
-                    <td>{{ $employee->email }}</td>
-                    <td>{{ $employee->phone }}</td>
-                    <td>{{ $employee->city ? $employee->city : "null" }}</td>
-                    <td><a href="{{ route('employees.edit', ['employee' => $employee->id]) }}" class="Edit-link" data-employee-id="{{ $employee->id }}"><i class="fas fa-pencil-alt"></i> Edit</a></td>
-                    <td><a class="delete-link" data-employee-id="{{ $employee->id }}"><i class="fas fa-trash-alt"></i> Delete</a></td>
-                </tr>
+    <!-- Ensuite, affichez les employés -->
+    @foreach($employees as $employee)
+        @if($employee->role == 'condidat')
+            <tr>
+                <td>{{ $employee->first_name }}</td>
+                <td>{{ $employee->last_name }}</td>
+                <td>
+                    <div class="age" data-dob="{{ $employee->date_of_birth }}"></div>
+                </td>
+                <td>{{ $employee->email }}</td>
+                <td>{{ $employee->phone }}</td>
+                <td>{{ $employee->city ? $employee->city : "null" }}</td>
+                <td>{{ $employee->role}}</td>
+                <td><a href="{{ route('employee.Edit', ['employee' => $employee->id]) }}" class="Edit-link" data-employee-id="{{ $employee->id }}"><i class="fas fa-pencil-alt"></i> Modifier</a></td>
+                <td><a class="delete-link" data-employee-id="{{ $employee->id }}"><i class="fas fa-trash-alt"></i> Supprimer</a></td>
+            </tr>
+            <form id="delete-form-{{ $employee->id }}" action="{{ route('employees.destroy', $employee) }}" method="post" style="display: none;">
+                @csrf
+                @method('delete')
+            </form>
+        @endif
+    @endforeach
+</table>
 
-                <form id="delete-form-{{ $employee->id }}" action="{{ route('employees.destroy', $employee) }}" method="post" style="display: none;">
-                    @csrf
-                    @method('delete')
-                </form>
-                
-            @endforeach
-        </table>
     </div>
 </div>
 
 <script src="js/delete.js"></script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-            var birthdate = new Date("{{ $employee->date_of_birth }}");
+    document.addEventListener('DOMContentLoaded', function() {
+        var ageSpans = document.querySelectorAll('.age');
+        ageSpans.forEach(function(ageSpan) {
+            var dob = new Date(ageSpan.dataset.dob);
             var today = new Date();
-            var age = today.getFullYear() - birthdate.getFullYear();
+            var age = today.getFullYear() - dob.getFullYear();
 
-            // Si l'anniversaire n'est pas encore passé cette année, ajustez l'âge
-            if (today.getMonth() < birthdate.getMonth() || (today.getMonth() === birthdate.getMonth() && today.getDate() < birthdate.getDate())) {
+            if (today.getMonth() < dob.getMonth() || (today.getMonth() === dob.getMonth() && today.getDate() < dob.getDate())) {
                 age--;
             }
 
-            document.getElementById('age_{{ $employee->id }}').textContent = age;
+            ageSpan.textContent = age;
         });
-     function handleEnter(event) {
+    });
+
+    function handleEnter(event) {
         if (event.key === 'Enter') {
             filterByName();
         }
     }
+
     function filterByName() {
         var searchName = document.getElementById('searchName').value.toLowerCase();
         var tableRows = document.querySelectorAll('.array_emp table tr');
 
         tableRows.forEach(function(row, index) {
             if (index !== 0) { // Ignore la première ligne des en-têtes
-                var firstNameCell = row.cells[0].textContent.toLowerCase(); // La cellule de la colonne "First Name"
-                var lastNameCell = row.cells[1].textContent.toLowerCase(); // La cellule de la colonne "Last Name"
+                var firstNameCell = row.cells[0].textContent.toLowerCase(); // La cellule de la colonne "Prénom"
+                var lastNameCell = row.cells[1].textContent.toLowerCase(); // La cellule de la colonne "Nom de famille"
 
                 if (firstNameCell.includes(searchName) || lastNameCell.includes(searchName)) {
                     row.style.display = ''; // Affiche la ligne si le nom ou le prénom correspond à la recherche
