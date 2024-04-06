@@ -176,7 +176,7 @@ class EmployeeController extends Controller
         $request->authenticateEmployee();
 
         $request->session()->regenerate();
-        return redirect()->intended(RouteServiceProvider::HOME);
+        return redirect()->intended('/');
 
     }
     
