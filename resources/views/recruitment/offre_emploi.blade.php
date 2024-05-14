@@ -58,6 +58,8 @@
 </head>
 
 <body>
+<section id="Home" style="background-image:url('<?php echo asset('images/backRH.png'); ?>'); background-repeat: no-repeat; background-size: cover; ">
+
     @include('layouts.navwel')
 
     <div class="offer-container">

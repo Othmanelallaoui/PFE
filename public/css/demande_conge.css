@@ -6,24 +6,21 @@ body {
 }
 
 .container {
-    max-width: 500px;
-    margin: 60px auto 0px;
-    background-color: #fff;
+    margin: 60px auto;
     padding: 20px;
+    max-width: 800px;
     border-radius: 5px;
-    border: 1px solid black;
-    box-shadow: 10px 1px 100px 0px rgba(0, 0, 0, 0.5);
 }
 
 h2 {
     text-align: center;
+    margin-top: -30px;
 }
 
 input[type="text"],
 input[type="email"],
 input[type="tel"],
 textarea,
-input[type="file"],
 input[type="date"],
 input[type="number"] {
     width: 100%;
@@ -46,9 +43,7 @@ input[type="submit"] {
     cursor: pointer;
     border-radius: 3px;
     transition: background-color 0.3s ease;
-    margin-top: -10px;
     width: 100px;
-    margin-bottom: 8px;
     border: 1px solid #ccc;
     float: right;
 }
@@ -61,30 +56,9 @@ label {
     font-size: 12px;
 }
 
-form {
+.formdemande {
     margin-bottom: 30px;
-}
-
-.divForm {
-    display: flex;
-    justify-content: center;
-    text-align: left;
-    padding: 30px;
-}
-
-.divForm form {
-    padding: 12px;
-    width: 500px;
-    border: 1px solid black;
-    box-shadow: 10px 1px 100px 0px rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-}
-
-#type_contrat {
-    width: 100%;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 10px;
 }
 
 .envoyer {
@@ -93,4 +67,139 @@ form {
     color: white;
     border-radius: 8px;
     float: right;
+}
+
+#list_demande,
+.divform {
+    margin: 20px;
+    padding: 15px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 13px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+th {
+    background-color: #f2f2fa;
+    color: black;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+.navigation-menu {
+    background-color: rgba(0, 0, 0, 0.356);
+    color: white;
+    font-family: 'figtree', sans-serif;
+    padding: 15px;
+    width: 100%;
+    margin-bottom: -10px;
+}
+
+.fair_demande {
+    padding: 5px 6px;
+    background-color: rgba(0, 0, 0, 0.89);
+    color: white;
+    border-radius: 8px;
+    margin-top: 8px;
+}
+
+.return-icon {
+    cursor: pointer;
+    color: #000;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.return-icon i {
+    margin-right: 5px;
+}
+
+.navigation-menu {
+    background-color: rgba(0, 0, 0, 0.356);
+    color: white;
+    font-family: 'figtree', sans-serif;
+    padding: 15px;
+    position: static;
+    width: 100%;
+    margin-bottom: -10px;
+}
+
+.fair_demande {
+    padding: 5px 6px;
+    background-color: rgba(0, 0, 0, 0.89);
+    color: white;
+    border-radius: 8px;
+    margin-top: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+th {
+    background-color: #f2f2fa;
+    color: black;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+.return-icon {
+    cursor: pointer;
+    color: #000;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.return-icon i {
+    margin-right: 5px;
+}
+
+.divform {
+    margin: 10px;
+    padding: 15px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+h2 {
+    margin-top: -30px;
 }

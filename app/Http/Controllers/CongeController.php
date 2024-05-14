@@ -1,90 +1,77 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Conge;
 use App\Models\DemandConge;
+use Illuminate\Support\Facades\Auth;
 
 class CongeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    // Méthode pour afficher toutes les demandes de congé (index)
     public function index()
     {
-        $conges = Conge::all();
-
-
+        // Charger la relation employee avec chaque demande de congé
+        $conges = DemandConge::with('employee')->get();
         return view('conge.gestion_conge', ['conges' => $conges]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    // Méthode pour afficher le formulaire de demande de congé et les demandes existantes pour l'employé connecté
     public function create()
     {
-        return view('conge.demande_conge');
+        $user = Auth::guard('employee')->user();
+        $conges = DemandConge::where('employee_id', $user->id)->get();
+        return view('conge.demande_conge', compact('conges'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    // Méthode pour enregistrer une nouvelle demande de congé
     public function store(Request $request)
     {
-        // Validation des données
         $validatedData = $request->validate([
             'motif' => 'required|string',
-            'employee_id'=>'required',
+            'employee_id' => 'required|exists:employees,id',
             'date_debut' => 'required|date',
             'date_fin' => 'required|date',
             'commentaire' => 'nullable|string',
         ]);
 
-        // Création d'une nouvelle demande de congé associée à l'utilisateur authentifié
         $demandConge = new DemandConge();
         $demandConge->employee_id = $validatedData['employee_id'];
         $demandConge->motif = $validatedData['motif'];
         $demandConge->date_debut = $validatedData['date_debut'];
         $demandConge->date_fin = $validatedData['date_fin'];
         $demandConge->commentaire = $validatedData['commentaire'];
-
-        // Enregistrement de la demande de congé
         $demandConge->save();
 
-        // Redirection vers une page de confirmation ou une autre action
-        return redirect()->route('welcome');
+        return redirect()->route('demande_conge');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    // Méthode pour approuver une demande de congé
+    public function approve($id)
     {
-        //
+        $conge = DemandConge::find($id);
+
+        if (!$conge) {
+            return redirect()->route('conges.index')->with('error', 'Demande de congé non trouvée.');
+        }
+
+        $conge->statu = 'approuvée';
+        $conge->save();
+
+        return redirect()->route('conges.index')->with('success', 'Demande de congé approuvée avec succès.');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    // Méthode pour annuler une demande de congé
+    public function cancel($id)
     {
-        //
-    }
+        $conge = DemandConge::find($id);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+        if (!$conge) {
+            return redirect()->route('conges.index')->with('error', 'Demande de congé non trouvée.');
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $conge->statu = 'refuser';
+        $conge->save();
+
+        return redirect()->route('conges.index')->with('success', 'Demande de congé annulée avec succès.');
     }
 }

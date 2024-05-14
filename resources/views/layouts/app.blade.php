@@ -84,7 +84,7 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="{{route('conge.index')}}">
+                        <a href="{{route('conges.index')}}">
                             <i class='far fa-calendar-alt icon'></i>
                             <span class="text nav-text">Gestion Conge</span>
                         </a>

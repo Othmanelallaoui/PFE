@@ -1,0 +1,84 @@
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.title-container h1 {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    padding-bottom: 40px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.search-bar label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.search-bar input[type="text"],
+.search-bar select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-right: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #f9f9f9;
+}
+
+.approve-button,
+.cancel-button {
+    padding: 10px;
+    border-radius: 14px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.approve-button {
+    background-color: #5cb85c;
+}
+
+.approve-button:hover {
+    background-color: #4cae4c;
+}
+
+.cancel-button {
+    background-color: #d9534f;
+}
+
+.cancel-button:hover {
+    background-color: #c9302c;
+}
+
+select {
+    width: 24%;
+}

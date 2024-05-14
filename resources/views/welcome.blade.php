@@ -16,7 +16,7 @@
     </style>
 
 </head>
-<section id="Home" style="background-image:url('<?php echo asset('images/backRH.jpg'); ?>'); background-repeat: no-repeat; background-size: cover; box-shadow: inset 900px 0px 800px 70px rgba(0, 0, 0, 0.4);">
+<section id="Home" style="background-image:url('<?php echo asset('images/backRH.png'); ?>'); background-repeat: no-repeat; background-size: cover; box-shadow: inset 900px 0px 800px 70px rgba(0, 0, 0, 0.4);">
 
 <body class="antialiased">
     @include('layouts.navwel')

@@ -43,9 +43,11 @@ Route::resource('/absences', AbsenceController::class)->middleware(['auth', 'ver
 Route::get('/add_absence', [AbsenceController::class, 'add_absence'])->Middleware(['auth', 'verified'])->name('add_absence');
 
 
-Route::resource('/conge', CongeController::class);
+Route::resource('/conges', CongeController::class);
 Route::GET('/demande_conge', [CongeController::class,'create'])->name('demande_conge')->middleware(['auth.employee']);
 Route::POST('/store_demande_conge', [CongeController::class,'store'])->name('store_demande_conge')->middleware(['auth.employee']);
+Route::post('/conges/{id}/approve', [CongeController::class, 'approve'])->name('conges.approve');
+Route::post('/conges/{id}/cancel', [CongeController::class, 'cancel'])->name('conges.cancel');
 
 
 

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -9,6 +8,8 @@ use Illuminate\Notifications\Notifiable;
 class Employee extends Authenticatable
 {
     use HasFactory, Notifiable;
+
+    protected $table = 'employees'; // La table correcte pour le modèle Employee
 
     protected $guard = 'employee';
 
@@ -24,6 +25,11 @@ class Employee extends Authenticatable
         'city',
         'user_id'
     ];
+
+    public function conges()
+    {
+        return $this->hasMany(DemandConge::class, 'employee_id');
+    }
 
     public function user()
     {

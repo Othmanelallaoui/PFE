@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Formation;
 use App\Models\Formateur;
+use Carbon\Carbon;
+
 
 class FormationController extends Controller
 {
@@ -63,12 +65,25 @@ class FormationController extends Controller
    
     public function edit(string $id)
     {
-        //
+        // Récupérer la formation à partir de l'ID
+        $formation = Formation::find($id);
+    
+        // Vérifier si la formation existe
+        if (!$formation) {
+            return redirect()->route('formation.index')->with('error', 'Formation non trouvée.');
+        }
+    
+        // Récupérer tous les formateurs disponibles
+        $formateurs = Formateur::all();
+    
+        // Convertir les dates en instances de Carbon
+        $formation->date_debut = Carbon::parse($formation->date_debut);
+        $formation->date_fin = Carbon::parse($formation->date_fin);
+    
+        // Passer les données à la vue
+        return view('formation.edit', compact('formation', 'formateurs'));
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
+    
     public function update(Request $request, string $id)
     {
         //
@@ -79,6 +94,20 @@ class FormationController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // Récupérer la formation à partir de l'ID
+        $formation = Formation::find($id);
+    
+        // Vérifier si la formation existe
+        if (!$formation) {
+            return redirect()->route('formations.index')->with('error', 'Formation non trouvée.');
+        }
+    
+        // Supprimer la formation
+        $formation->delete();
+    
+        // Rediriger vers la liste des formations avec un message de succès
+        return redirect()->route('formations.index')->with('success', 'Formation supprimée avec succès.');
     }
+    
+    
 }

@@ -1,67 +1,69 @@
-/* styles.css */
-
-
-/* Style général */
+/* General body styling */
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-left: 40px;
-    margin-top: 10px;
-    padding-top: 40px;
-    padding-bottom: 20px;
-}
-
-.container form {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 10px 1px 100px 0px rgba(0, 0, 0, 0.5);
-    padding: 25px;
-    width: 500px;
-    margin-left: 70px;
+    width: 60%;
+    /* Reduced width for better focus on form */
+    margin: auto;
+    overflow: hidden;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Existing shadow for container */
 }
 
 
-/* Titre de la page */
-
-h1 {
-    color: #333;
-    margin-bottom: 20px;
-}
-
-
-/* Formulaire de création */
+/* Form styling */
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-label {
-    font-weight: bold;
+.form-group label {
+    display: block;
+    color: #333;
+    margin-bottom: 5px;
 }
 
-input[type="text"],
-textarea,
-select,
-input[type="date"] {
+.form-control {
     width: 100%;
-    padding: 10px;
-    font-size: 16px;
+    padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Added subtle shadow to form inputs */
 }
 
-textarea {
-    resize: vertical;
-    height: 100px;
+
+/* Button styling */
+
+button.btn-cree {
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: #0056b3;
+button.btn-cree:hover {
+    background-color: #333;
+}
+
+
+/* Styling for input type date to match the form-control style */
+
+input[type="date"].form-control {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
 }
