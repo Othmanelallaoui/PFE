@@ -55,12 +55,16 @@ class DemandeRecrutmentController extends Controller
         $demandeRecrutment->phone = $validatedData['phone'];
         $demandeRecrutment->message = $validatedData['message'];
 
-        // Gestion du téléchargement du fichier CV
-        if ($request->hasFile('resume')) {
-            $resume = $request->file('resume');
-            $resumePath = $resume->store('resumes'); // Stocker le fichier dans le dossier "resumes" du stockage Laravel
-            $demandeRecrutment->resume = $resumePath;
-        }
+// Gestion du téléchargement du fichier CV
+if ($request->hasFile('resume')) {
+    $resume = $request->file('resume');
+    $resumeName = $resume->getClientOriginalName(); // Nom original du fichier
+    $resume->move(public_path('cv'), $resumeName); // Déplacer le fichier vers le dossier public
+    $demandeRecrutment->resume = 'cv/' . $resumeName; // Chemin relatif du fichier dans le répertoire public
+}
+
+
+
 
         // Enregistrement de l'instance dans la base de données
         $demandeRecrutment->save();

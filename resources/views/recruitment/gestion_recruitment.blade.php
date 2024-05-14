@@ -24,20 +24,31 @@
     }
 
     .table {
-        width: 80%;
-        border-collapse: collapse;
+        width: 90%;
         margin-bottom: 50px;
-        margin-left: 60px;
+        margin-left: 80px;
+        margin-top: 20px;
+        background-color: white;
+        border-radius:8px ;
+
+
     }
 
     .table th,
     .table td {
         padding: 8px;
-        border: 1px solid black;
+
+ 
     }
-    
+    .table td {
+        
+        border-bottom: #bbb 1px solid;
+        font-size: 13.5px;
+
+    }
     .table th {
-        background-color: rgba(10, 10, 10, 0.2);
+        background-color: #f2f2f2;
+        font-size: 14px;
     }
 
     .divtab {
@@ -45,6 +56,7 @@
         justify-content: center;
         text-align: center;
         width: 100%;
+        border-radius: 8px;
     }
 
     .bar {
@@ -55,6 +67,18 @@
     table tbody tr:hover {
         cursor: pointer;
         background-color: rgba(10, 10, 10, 0.111);
+    }
+    .genererexcel{
+        float: right;
+            padding: 6px 8px;
+            border-radius: 8px;
+            font-size: 12px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            margin: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
     }
 </style>
 
@@ -72,24 +96,40 @@
     <table class="table">
         <thead>
             <tr>
-                <th scope="col">Titre du poste</th>
-                <th scope="col">Description</th>
-                <th scope="col">Type de contrat</th>
-                <th scope="col">Formation</th>
+                <th >Titre du poste</th>
+                <th  >Description</th>
+                <th >Type de contrat</th>
+                <th >Formation</th>
+                <th >Candidats</th> <!-- Nouvelle colonne -->
+                <th >EXCEL</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($offers as $offer)
-            <tr class="table-row" data-url="{{ route('affiche_condidat', ['id' => $offer->id]) }}">
-                <td>{{ $offer->titre_poste }}</td>
-                <td>{{ $offer->description_poste }}</td>
-                <td>{{ $offer->type_contrat }}</td>
-                <td>{{ $offer->formation_requise }}</td>
-            </tr>
-            @endforeach
+        @foreach ($offers as $offer)
+<tr class="table-row" data-url="{{ route('affiche_condidat', ['id' => $offer->id]) }}">
+    <td>{{ $offer->titre_poste }}</td>
+    <td>{{ $offer->description_poste }}</td>
+    <td>{{ $offer->type_contrat }}</td>
+    <td>{{ $offer->formation_requise }}</td>
+    <td>
+        <a href="{{ route('affiche_condidat', ['id' => $offer->id]) }}" class="candidats-interesses">
+            <i class="fas fa-user"></i> <!-- Icône de candidat -->
+            <span>{{ $offer->candidats_interesses_count }}</span> <!-- Nombre de candidats intéressés -->
+        </a>
+    </td>
+    <td>
+    <a href="{{ route('export.candidats_interesses', ['id' => $offer->id]) }}" class="genererexcel">
+    Excel
+</a>
+
+    </td>
+</tr>
+@endforeach
+
         </tbody>
     </table>
 </div>
+
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const tableRows = document.querySelectorAll('.table-row');

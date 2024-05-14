@@ -61,7 +61,7 @@ Route::get('/offre_emploi', [RecruitmentController::class, 'offre_emploi'])->nam
 
 Route::resource('demande_recrutment', DemandeRecrutmentController::class);
 Route::get('/demande_recrutment', [DemandeRecrutmentController::class, 'index'])->name('demande_recrutment.index')->middleware(['auth.employee']);
-
+Route::get('/export-candidats-interesses/{id}', [RecruitmentController::class, 'exportCandidatsInteresses'])->name('export.candidats_interesses');
 
 Route::resource('evaluations-formations', 'EvaluationFormationController');
 Route::resource('employes-formations', 'EmployeFormationController');

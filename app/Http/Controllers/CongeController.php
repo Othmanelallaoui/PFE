@@ -53,7 +53,7 @@ class CongeController extends Controller
         $demandConge->save();
 
         // Redirection vers une page de confirmation ou une autre action
-        return redirect()->route('conge.create');
+        return redirect()->route('welcome');
     }
 
     /**

@@ -37,8 +37,9 @@ main {
 .array_emp table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 14px;
+    font-size: 12px;
     margin-top: 0px;
+    background-color: #fff;
 }
 
 .add_abs a {
@@ -103,7 +104,7 @@ main {
 
 th,
 td {
-    border: 1px solid white;
+    border-bottom: 1px solid white;
     padding: 8px;
     text-align: center;
     font-size: 14px;
@@ -112,4 +113,14 @@ td {
 th {
     background-color: rgba(10, 3, 30, 0.09);
     font-size: 14px;
+}
+
+td {
+    border-bottom: 1px solid rgb(109, 105, 105);
+}
+
+.diverror {
+    color: red;
+    font-size: 12px;
+    padding: 10px;
 }

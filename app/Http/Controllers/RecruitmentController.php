@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Recruitment;
 use App\Models\DemandeRecrutment;
 use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\CandidatsInteressesExport;
+
 
 
 use function PHPUnit\Framework\returnSelf;
@@ -15,13 +18,21 @@ class RecruitmentController extends Controller
     /**
      * Display a listing of the resource.
      */
+
     public function index()
     {
+        // Récupérer toutes les offres
         $offers = Recruitment::all();
+
+        // Compter le nombre de candidats intéressés pour chaque offre
+        foreach ($offers as $offer) {
+            $offer->candidats_interesses_count = DemandeRecrutment::where('offre_id', $offer->id)->count();
+        }
 
         // Passer les offres à la vue gestion_recritment
         return view('Recruitment.gestion_recruitment', ['offers' => $offers]);
     }
+
 
 
     public function offre_emploi()
@@ -115,13 +126,13 @@ class RecruitmentController extends Controller
     public function afficheCondidat($id)
     {
         // Récupérer les candidats liés à l'offre spécifiée
-        $condidats = DemandeRecrutment::where('offre_id', $id)->get(); 
-    
+        $condidats = DemandeRecrutment::where('offre_id', $id)->get();
+
         // Vérifier l'existence du fichier CV pour chaque candidat
         foreach ($condidats as $condidat) {
             // Obtenir le chemin complet du fichier CV
             $filePath = Storage::path($condidat->resume);
-    
+
             // Vérifier si le fichier existe réellement
             if (file_exists($filePath)) {
                 $condidat->cvExists = true;
@@ -129,13 +140,14 @@ class RecruitmentController extends Controller
                 $condidat->cvExists = false;
             }
         }
-    
+
         // Passer les candidats récupérés à la vue
         return view('recruitment.list_condidats_offre', ['condidats' => $condidats]);
     }
-    
+
     public function afficherOfferForm($id)
-    {  $offer = Recruitment::find($id);
+    {
+        $offer = Recruitment::find($id);
         return view('recruitment.formulair_condidat', compact('offer'));
     }
     public function detailsOffer($id)
@@ -143,5 +155,17 @@ class RecruitmentController extends Controller
         $offer = Recruitment::find($id); // Supposons que votre modèle s'appelle "Offer"
         return view('recruitment.details_offre', compact('offer'));
     }
-    
+    public function exportCandidatsInteresses($id)
+    {
+        // Récupérer les candidats intéressés à l'offre spécifiée
+        $condidats = DemandeRecrutment::where('offre_id', $id)->get();
+
+        // Vérifier si des candidats sont disponibles
+        if ($condidats->isEmpty()) {
+            return redirect()->back()->with('error', 'Aucun candidat n\'est disponible pour cette offre.');
+        }
+
+        // Générer le fichier Excel avec les données des candidats
+        return Excel::download(new CandidatsInteressesExport($id), 'candidats_interesses_offre_' . $id . '.xlsx');
+    }
 }

@@ -14,9 +14,10 @@
 </div>
 
 <div class="search-bar">
-    <input type="text" id="searchName" onkeyup="handleEnter(event)">
-    <i class="fas fa-search" onclick="filterByName()" style="cursor: pointer;"></i>
+    <input type="text" id="searchName" onkeyup="filterByName()">
+    <i class="fas fa-search" style="cursor: pointer;"></i>
 </div>
+
 
 <div class="array_emp ">
 
@@ -105,22 +106,23 @@
     }
 
     function filterByName() {
-        var searchName = document.getElementById('searchName').value.toLowerCase();
-        var tableRows = document.querySelectorAll('.array_emp table tr');
+    var searchName = document.getElementById('searchName').value.toLowerCase();
+    var tableRows = document.querySelectorAll('.array_emp table tr');
 
-        tableRows.forEach(function(row, index) {
-            if (index !== 0) { // Ignore la première ligne des en-têtes
-                var firstNameCell = row.cells[0].textContent.toLowerCase(); // La cellule de la colonne "Prénom"
-                var lastNameCell = row.cells[1].textContent.toLowerCase(); // La cellule de la colonne "Nom de famille"
+    tableRows.forEach(function(row, index) {
+        if (index !== 0) { // Ignore la première ligne des en-têtes
+            var firstNameCell = row.cells[0].textContent.toLowerCase(); // La cellule de la colonne "Prénom"
+            var lastNameCell = row.cells[1].textContent.toLowerCase(); // La cellule de la colonne "Nom de famille"
 
-                if (firstNameCell.includes(searchName) || lastNameCell.includes(searchName)) {
-                    row.style.display = ''; // Affiche la ligne si le nom ou le prénom correspond à la recherche
-                } else {
-                    row.style.display = 'none'; // Cache la ligne sinon
-                }
+            if (firstNameCell.includes(searchName) || lastNameCell.includes(searchName)) {
+                row.style.display = ''; // Affiche la ligne si le nom ou le prénom correspond à la recherche
+            } else {
+                row.style.display = 'none'; // Cache la ligne sinon
             }
-        });
-    }
+        }
+    });
+}
+
 </script>
 
 @endsection

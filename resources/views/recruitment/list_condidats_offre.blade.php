@@ -67,7 +67,7 @@
         <h2>{{ $condidat->first_name }} {{ $condidat->last_name }}</h2>
         <p>Email: {{ $condidat->email }}</p>
         <p>Téléphone: {{ $condidat->phone }}</p>
-        <p>CV: <a href="{{ asset($condidat->resume) }}">Télécharger CV</a></p>
+        <p>CV: <a href="{{ asset($condidat->resume) }}" download>Télécharger CV</a></p>
         <p>Message: Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, reiciendis mollitia quisquam, error placeat temporibus iusto suscipit dolores facere officia est nostrum distinctio nisi illo nulla iste? Sapiente, vitae laudantium?</p>
     </div>
     @endforeach

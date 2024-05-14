@@ -44,6 +44,11 @@
 </style>
 
 <div class="divform">
+@if(session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
     <form action="{{ route('absences.store') }}" method="POST">
         @csrf
         <!-- ID de l'employé -->
